@@ -1,16 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 using System.Text;
 using Xamarin.Forms;
 
 namespace AirMonitor.ViewModels
 {
-    class DetailsViewModel
+    class DetailsViewModel : INotifyPropertyChanged
     {
-        private readonly INavigation _navigation;
-        public DetailsViewModel(INavigation navigation)
+     
+        private int _CAQI;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public int CAQI
         {
-            _navigation = navigation;
+            get
+            {
+                return _CAQI;
+            }
+            set
+            {
+                _CAQI = value;
+                OnPropertyChanged(CAQI.ToString());
+            }
+        }
+        public DetailsViewModel() { }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -18,7 +18,6 @@ namespace AirMonitor.Views
         {
             InitializeComponent();
 
-            BindingContext = new DetailsViewModel(Navigation);
         }
 
         private void Help_Clicked(object sender, EventArgs e)

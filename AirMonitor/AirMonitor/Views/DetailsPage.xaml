@@ -5,8 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AirMonitor.Views.DetailsPage"
-             xmlns:controls="clr-namespace:AirMonitor.Views.Controls"
+             xmlns:controls="clr-namespace:AirMonitor.Views.Controls" 
+             xmlns:ViewModels="clr-namespace:AirMonitor.ViewModels"
              BackgroundColor="#f9f9f9">
+    <ContentPage.BindingContext>
+        <ViewModels:DetailsViewModel/>
+    </ContentPage.BindingContext>
 
     <ScrollView>
         <Grid>
@@ -14,7 +18,7 @@
                 Padding="24"
                 Spacing="12">
                 <Frame Style="{ StaticResource CaqiFrameStyle}">
-                    <Label
+                    <Label Text="{ Binding CAQI }"
                      HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center">
                         <Label.FormattedText>
