@@ -12,7 +12,6 @@ namespace AirMonitor
             InitializeComponent();
 
             MainPage = new RootTabbedPage();
-
         }
 
         protected override void OnStart()
