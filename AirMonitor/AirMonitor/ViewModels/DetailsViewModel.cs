@@ -11,6 +11,8 @@ namespace AirMonitor.ViewModels
     {
      
         private int _CAQI;
+        private int _pm25;
+        private int _pm10;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public int CAQI
@@ -22,9 +24,36 @@ namespace AirMonitor.ViewModels
             set
             {
                 _CAQI = value;
-                OnPropertyChanged(CAQI.ToString());
+                OnPropertyChanged("CAQI");
             }
         }
+
+        public int Pm25
+        {
+            get
+            {
+                return _pm25;
+            }
+            set
+            {
+                _pm25 = value;
+                OnPropertyChanged("PM25");
+            }
+        }
+
+        public int Pm10
+        {
+            get
+            {
+                return _pm10;
+            }
+            set
+            {
+                _pm10 = value;
+                OnPropertyChanged("PM10");
+            }
+        }
+
         public DetailsViewModel() { }
 
         protected virtual void OnPropertyChanged(string propertyName)

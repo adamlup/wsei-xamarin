@@ -72,7 +72,7 @@
                                             TextColor="Black"
                                             FontSize="14"/>
                                         <Span
-                                            Text="(137%)"
+                                            Text="{ Binding Pm25, StringFormat='({0}%)'}"
                                             TextColor="Black"
                                             FontSize="20"/>
                                     </FormattedString>
@@ -105,7 +105,7 @@
                                             TextColor="Black"
                                             FontSize="14"/>
                                         <Span
-                                            Text="(135%)"
+                                            Text="{ Binding Pm10, StringFormat='({0}%)'}"
                                             TextColor="Black"
                                             FontSize="20"/>
                                     </FormattedString>
