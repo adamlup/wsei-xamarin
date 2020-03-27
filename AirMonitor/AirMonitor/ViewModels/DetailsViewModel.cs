@@ -13,6 +13,8 @@ namespace AirMonitor.ViewModels
         private int _CAQI;
         private int _pm25;
         private int _pm10;
+        private double _wilgotnosc;
+        private int _cisnienie;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public int CAQI
@@ -51,6 +53,32 @@ namespace AirMonitor.ViewModels
             {
                 _pm10 = value;
                 OnPropertyChanged("PM10");
+            }
+        }
+
+        public double Wilgotnosc
+        {
+            get
+            {
+                return _wilgotnosc;
+            }
+            set
+            {
+                _wilgotnosc = value;
+                OnPropertyChanged("Wilgotność");
+            }
+        }
+
+        public int Cisnienie
+        {
+            get
+            {
+                return _cisnienie;
+            }
+            set
+            {
+                _cisnienie = value;
+                OnPropertyChanged("Ciśnienie");
             }
         }
 

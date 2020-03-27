@@ -7,11 +7,17 @@
              x:Class="AirMonitor.Views.DetailsPage"
              xmlns:controls="clr-namespace:AirMonitor.Views.Controls" 
              xmlns:ViewModels="clr-namespace:AirMonitor.ViewModels"
+             xmlns:Converter="clr-namespace:AirMonitor.Converter"
              BackgroundColor="#f9f9f9">
     <ContentPage.BindingContext>
         <ViewModels:DetailsViewModel/>
     </ContentPage.BindingContext>
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:Converter x:Key="cnvDoubleToStr"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ScrollView>
         <Grid>
             <StackLayout
@@ -124,11 +130,11 @@
                     <controls:ContentWithHeader.ControlContent>
                         <StackLayout>
                             <Label
-                                Text="95%"
+                                Text="{Binding Wilgotnosc, Converter={StaticResource cnvDoubleToStr}}"
                                 FontSize="20"
                                 TextColor="Black" />
                             <Slider
-                                Value="0.95"
+                                Value="{Binding Wilgotnosc}"
                                 MaximumTrackColor="Gray"
                                 MinimumTrackColor="CornflowerBlue"
                                 ThumbColor="CornflowerBlue"/>
@@ -144,14 +150,14 @@
                     <controls:ContentWithHeader.ControlContent>
                         <StackLayout>
                             <Label
-                                Text="1026 hPa"
+                                Text="{Binding Cisnienie, StringFormat='{0} hPa'}"
                                 FontSize="20"
                                 TextColor="Black" />
                             <!-- Set Maximum before Minimum in Slider -->
                             <Slider
                                 Maximum="1100"
                                 Minimum="900"
-                                Value="1026"
+                                Value="{Binding Cisnienie}"
                                 MaximumTrackColor="Gray"
                                 MinimumTrackColor="CornflowerBlue"
                                 ThumbColor="CornflowerBlue"/>
