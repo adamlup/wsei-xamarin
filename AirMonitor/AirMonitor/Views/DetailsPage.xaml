@@ -8,7 +8,8 @@
              xmlns:controls="clr-namespace:AirMonitor.Views.Controls" 
              xmlns:ViewModels="clr-namespace:AirMonitor.ViewModels"
              xmlns:Converter="clr-namespace:AirMonitor.Converter"
-             BackgroundColor="#f9f9f9">
+             Title="Details Page"
+             Style="{StaticResource DetailsPageStyle}">
     <ContentPage.BindingContext>
         <ViewModels:DetailsViewModel/>
     </ContentPage.BindingContext>
@@ -38,10 +39,10 @@
                     </Label>
                 </Frame>
                 <Label
-                    Text="Świetna jakość!"
+                    Text="{Binding CaqiTitle}"
                     Style="{StaticResource CaqiTitleStyle}"/>
                 <Label
-                    Text="Możesz bezpiecznie wyjść z domu bez swojej maski anty-smogowej i nie bać się o swoje zdrowie."
+                    Text="{Binding CaqiDescription}"
                     Style="{StaticResource CaqiDescriptionStyle}" />
 
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}"/>
@@ -61,7 +62,7 @@
                                             Text="{Binding Pm25}"
                                             Style="{StaticResource NormalTextSpanStyle}"/>
                                         <Span
-                                            Text=" mg/m3 "
+                                            Text="  µg/m³ "
                                             Style="{StaticResource SmallTextSpanStyle}"/>
                                         <Span
                                             Text="{ Binding Pm25Percent, StringFormat='({0}%)'}"
@@ -106,30 +107,27 @@
                     <controls:ContentWithHeader.ControlContent>
                         <StackLayout>
                             <Label
-                                Text="{Binding Wilgotnosc, Converter={StaticResource cnvDoubleToStr}}"
+                                Text="{Binding Humidity, Converter={StaticResource cnvDoubleToStr}}"
                                 Style="{StaticResource NormalTextSpanStyle}"/>
                             <Slider
-                                Value="{Binding Wilgotnosc}"
+                                Value="{Binding Humidity}"
                                 Style="{StaticResource SliderStyle}"/>
                         </StackLayout>
                     </controls:ContentWithHeader.ControlContent>
                 </controls:ContentWithHeader>
-                
-                <BoxView
-                    HeightRequest="1"
-                    HorizontalOptions="Fill"
-                    BackgroundColor="LightGray"/>
+
+                <BoxView Style="{StaticResource HorizontalSeparatorStyle}"/>
                 <controls:ContentWithHeader Title="Ciśnienie">
                     <controls:ContentWithHeader.ControlContent>
                         <StackLayout>
                             <Label
-                                Text="{Binding Cisnienie, StringFormat='{0} hPa'}"
+                                Text="{Binding Pressure, StringFormat='{0} hPa'}"
                                 Style="{StaticResource NormalTextSpanStyle}"/>
                             <!-- Set Maximum before Minimum in Slider -->
                             <Slider
                                 Maximum="1100"
                                 Minimum="900"
-                                Value="{Binding Cisnienie}"
+                                Value="{Binding Pressure}"
                                 Style="{StaticResource SliderStyle}"/>
                         </StackLayout>
                     </controls:ContentWithHeader.ControlContent>

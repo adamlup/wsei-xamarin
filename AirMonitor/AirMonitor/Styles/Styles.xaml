@@ -3,12 +3,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Style TargetType="Label" x:Key="TitleStyle">
-        <Setter Property="TextColor" Value="{ StaticResource PrimaryColor}"/>
-        <Setter Property="FontAttributes" Value="Bold"/>
-        <Setter Property="FontSize" Value="24"/>
-    </Style>
-
     <Style TargetType="ContentPage" x:Key="DetailsPageStyle">
         <Setter Property="BackgroundColor" Value="{StaticResource DetailsBackgroundColor}"/>
     </Style>
@@ -16,6 +10,11 @@
     <Style TargetType="StackLayout" x:Key="DetailsLayoutStyle">
         <Setter Property="Padding" Value="24"/>
         <Setter Property="Spacing" Value="12"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="CenteredTextStyle">
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
     </Style>
 
     <Style TargetType="Frame" x:Key="CaqiFrameStyle">
@@ -49,6 +48,16 @@
     </Style>
 
     <Style TargetType="Label" x:Key="CaqiDescriptionStyle">
+        <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="NormalTextLabelStyle">
+        <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="SmallTextLabelStyle">
         <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
